@@ -24,7 +24,7 @@ jobs:
           TG_API_HASH: ${{ secrets.TG_API_HASH }}
           TG_SESSION_STRING: ${{ secrets.TG_SESSION_STRING }}
           TIMEWEB_API_KEY: ${{ secrets.TIMEWEB_API_KEY }}
-          TIMEWEB_MODEL: ${{ secrets.TIMEWEB_MODEL }}
+          TIMEWEB_MODEL: gemini/gemini-3.1-flash-lite
           FOLDER_NAME: ${{ secrets.FOLDER_NAME }}
           KEYWORDS: ${{ secrets.KEYWORDS }}
           LOOKBACK_HOURS: ${{ secrets.LOOKBACK_HOURS }}
