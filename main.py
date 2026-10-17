@@ -19,7 +19,7 @@ TG_SESSION_STRING = os.environ["TG_SESSION_STRING"]
 
 TIMEWEB_API_KEY = os.environ["TIMEWEB_API_KEY"]
 TIMEWEB_API_BASE_URL = os.environ.get("TIMEWEB_API_BASE_URL", "https://api.timeweb.ai/v1").rstrip("/")
-TIMEWEB_MODEL = os.environ.get("TIMEWEB_MODEL", "gemini/gemini-2.5-flash-lite")
+TIMEWEB_MODEL = os.environ.get("TIMEWEB_MODEL", "gemini/gemini-3.1-flash-lite")
 
 FOLDER_NAME = os.environ["FOLDER_NAME"]
 CONFIGURED_KEYWORDS = [
