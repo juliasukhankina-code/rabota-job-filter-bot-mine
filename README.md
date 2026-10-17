@@ -66,7 +66,7 @@ You'll get an `api_id` and `api_hash`.
 ### 2. Timeweb AI API key
 
 Go to [api.timeweb.ai](https://api.timeweb.ai) → sign up → add a few dollars
-of credit → **Keys** → create a key. `gemini/gemini-2.5-flash-lite` (the
+of credit → **Keys** → create a key. `gemini/gemini-3.1-flash-lite` (the
 default model here) is cheap enough that a few dollars lasts a long time.
 
 ### 3. Group your vacancy channels into a Telegram folder
@@ -115,11 +115,12 @@ secrets using the matching values from `.env`:
 - `TG_API_HASH`
 - `TG_SESSION_STRING`
 - `TIMEWEB_API_KEY`
-- `TIMEWEB_MODEL`
 - `FOLDER_NAME`
 - `KEYWORDS`
 - `LOOKBACK_HOURS`
 
+The GitHub Actions workflow uses Gemini 3.1 Flash Lite directly. To change the
+model for scheduled scans, update `TIMEWEB_MODEL` in `.github/workflows/daily.yml`.
 Never upload `.env` or paste its contents into a chat. Then push the project
 to the repository. The included workflow scans daily at 06:00 Moscow time;
 you can also start a scan manually from **Actions → Daily vacancy scan → Run
