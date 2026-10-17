@@ -272,7 +272,22 @@ COMMENT: <1-2 предложения почему подходит или не �
         },
         timeout=30,
     )
-    resp.raise_for_status()
+    if not resp.ok:
+        # Preserve the provider's response body: requests' default HTTPError
+        # only reports the status and URL, which hides the actionable reason.
+        error_detail = resp.text.strip()[:1200] or resp.reason
+        model_hint = (
+            " Check that TIMEWEB_MODEL is an available model in AI Gateway "
+            "and update the GitHub Actions secret if needed."
+            if resp.status_code == 410
+            else ""
+        )
+        raise requests.HTTPError(
+            f"Timeweb AI request failed with HTTP {resp.status_code} "
+            f"for model {TIMEWEB_MODEL!r}: {error_detail}.{model_hint}",
+            response=resp,
+        )
+
     content = resp.json()["choices"][0]["message"]["content"]
 
     fit = False
